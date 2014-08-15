@@ -1,0 +1,540 @@
+\section{Likelihood parametrization}
+\label{sec:MassReconstruction}
+
+The Secondary Vertex Fit algorithm
+\footnote{In the current implementation of the SVfit algorithm, the secondary decay vertices of the tau leptons
+(hence its name) are not used for the determination of the tau momenta, although the algorithm
+was originally designed with this functionality.} (SVfit) \cite{SVfit} adopts a strategy similar to the MMC technique, but with a purely
+analytical approach for the likelihood parametrization.
+
+Let's collectively denote the ensemble of experimentally measured observables
+(e.g. the momenta and mass of the visible decay products, the 
+missing energy, etc...), as $\mathbf{x}_m$, and the collection of unknown dynamical parameters
+necessary to fully model the di--tau system as $\mathbf{x}_u$. Given a measured value of $\mathbf{x}_m$,
+the di--tau decay kinematic corresponding to the choice $\mathbf{x}_u$ is associated with an \textit{a priori}
+probability density
+$$
+\frac{df(\mathbf{x}_u | \mathbf{x}_m)}{d\mathbf{x}_u}.
+$$
+The mass of the di--tau system is a well defined function of $\mathbf{x}_u$ and $\mathbf{x}_m$:
+\begin{equation}\label{eq:SVfitM}
+ M_{\tau\tau} = M_{\tau\tau}(\mathbf{x}_u, \mathbf{x}_m).
+\end{equation}
+The \textit{a posteriori} probability density for $M_{\tau\tau}$ is then obtained by marginalizing the dynamical parameters:
+\begin{equation} \label{eq:DLM}
+ \frac{dL(M_{\tau\tau})}{dM_{\tau\tau}} = \int_{\Omega} \frac{df(\mathbf{x}_u | \mathbf{x}_m)}{d\mathbf{x}_u}
+\delta(M_{\tau\tau} - M_{\tau\tau}(\mathbf{x}_u, \mathbf{x}_m)) d\mathbf{x}_u,
+\end{equation}
+where $\Omega$ is a volume in the the $\mathbf{x}_u$ parameter space, subject to possible physical constraints. 
+
+The probability for the decay $\tau \to X$, in a phase--space element with volume $dX$, is proportional to
+\begin{equation}\label{eq:dGamma}
+ d \Gamma \sim |{\cal M}(\tau \to X)|^2 dX,
+\end{equation}
+where ${\cal M}$ is the amplitude for that particular transition, which is
+known from theory. The decay width $1/\Gamma d\Gamma(\theta)/d\theta$,
+differential in another parameter $\theta$, can be redily obtained from \eqref{eq:dGamma} after inclusion of a Jacobian
+term $|dX/d\theta|$. 
+
+The following tau decay modes are considered in the SVfit algorithm:
+\begin{itemize}
+ \item $\tau^- \to l^- \: \bar{\nu}_l \: \nu_{\tau}$, where $l=e,\mu$,
+ \item $\tau^- \to \pi^- \:  \nu_{\tau}$
+ \item $\tau^- \to \pi^-\pi^0 \: \nu_{\tau}$, where the $\pi\pi$ system is mediated by the $\rho(770)$ resonance,
+ \item $\tau^- \to \pi^-\pi^+\pi^- \:  \nu_{\tau}$ or $\pi^-\pi^0\pi^0 \: \nu_{\tau}$, where the two final states 
+originate from the decay chain $\tau \to a_1(1240) \: \nu_{\tau} \to \rho(\pi\pi) \: \pi \: \nu_{\tau}$. 
+\end{itemize}
+The two helicity eigenstates of the tau lepton ($L,R$) have different decay widths.
+The invariance under CP implies equal amplitudes for $\tau^-_{L}$ and $\tau^+_{R}$. 
+
+\subsection{Tau decay parametrization} \label{sec:decayParam}
+
+The Cartesian components of the neutrino momenta are re--expressed in terms of variables more
+directly connected to the tau decay kinematics. The following parametrization is adopted:
+\begin{itemize}
+ \item $\tau_{\ell}\tau_{\ell}$:\\
+the fraction of the tau lepton energy in the laboratory frame taken by the decay leptons
+($x_{\ell},x_{\ell}'$), the mass of the two neutrino pairs ($m_{\nu\nu},m_{\nu\nu}'$) and the azimuthal angle of the tau
+lepton momenta with respect to their visible decay products ($\phi_{\ell},\phi_{\ell}'$).
+By convention, $\phi_{l}=0$ corresponds to a direction in the plane spanned by the the momentum of $\ell$ and the
+$z$--axis in the CMS reference frame:
+$$
+\mathbf{x}_u = \left(x_{\ell}, m_{\nu\nu}, \phi_{\ell}, x_{\ell}', m_{\nu\nu}', \phi_{\ell}'\right)
+$$
+ \item $\tau_{\ell}\tau_h$:\\
+the fraction of the tau lepton energy in the laboratory frame taken by the visible decay particles
+($x_{h},x_{\ell}$), the mass of the neutrino pair arising from the fully--leptonic decay ($m_{\nu\nu}$)
+and the azimuthal angle of the tau lepton momenta with respect to the direction of their visible decay products
+($\phi_{\ell},\phi_{h}$):
+$$
+\mathbf{x}_u = \left(x_{\ell}, m_{\nu\nu}, \phi_{\ell}, x_{h}, \phi_{h}\right)
+$$
+ \item $\tau_h\tau_h$:\\
+the fraction of the tau lepton energy in the laboratory frame taken by the visible decay particles
+($x_{h},x_{h}'$) and the azimuthal angle of the tau
+lepton momenta with respect to the direction of their visible decay products ($\phi_{h},\phi_{h}'$):
+$$
+\mathbf{x}_u = \left(x_{h}, \phi_{h}, x_{h}', \phi_{h}'\right)
+$$
+\end{itemize}
+When complemented with the measured momentum of the decay products and with the reconstructed $\vec{E}_T^{miss}$,
+these parameters fully describe the di--tau kinematics.
+The di--tau mass is then obtained as a function of these parameters and measurements.
+The explicit formula can be straighforward computed but it results quite involved, and therefore it has been omitted
+from the text.
+An algorithmic procedure on how to derive the di--tau mass from these parameters is described in Sec. \ref{sec:SVfitLike}.
+
+\subsection{Alternative parametrizations and physical constraints}\label{sec:alternativeParam}
+
+An equally good choice of parameters is to replace the $x$ fractions with $\cos\theta^*$, the cosine of the polar
+decay angle of the visible decay products ($\ell$, $\pi$, $\rho(\pi\pi)$ or $a_1(\pi\pi\pi)$) in the tau rest frame,
+with respect to the polarization axis of the tau, which for a state of definite helicity corresponds to the direction of flight
+in the lab frame.
+The relation between $x$ and $\cos\theta^*$ can be obtained by solving for the visible energy $E_{vis}$ in the lab frame,
+after a Lorentz boost $\gamma=E_{\tau}/m_{\tau}$ from the rest frame:   
+\begin{equation} \label{eq:cosTheta}
+ \cos\theta^* = \frac{E_{vis} - \gamma E_{vis}^*}{\gamma \beta p_{vis}^*}
+\end{equation}
+where $E_{vis}^*$ and $p_{vis}^*$ are the energy and momentum of the visible particles in the tau rest frame and
+$\beta = \sqrt{1-1/\gamma^2}$. The energy and momentum in the rest frame are given by 
+\begin{eqnarray} \label{eq:mVis}
+ E_{vis}^* & = & \frac{m^2_{\tau} + m^2_{vis} - m^2_{\nu\nu}}{2m_{\tau}} \\
+ p_{vis}^* & = & \frac{[(m_{\tau}^2-(m_{\nu\nu}+m_{vis})^2)(m_{\tau}^2-(m_{\nu\nu}-m_{vis})^2)]^{\frac{1}{2}}}{2m_{\tau}},
+\end{eqnarray}
+with $m_{\nu\nu}=0$ for a semi--leptonic decay (see e.g. \cite{PDG}).
+Notice that $-1\leq  \cos\theta^* \leq 1$ implies the physical constraint on $x$: $m_{vis}^2/m_{\tau}^2 \leq x \leq 1$. 
+In the collinear limit $\beta \to 1$, Equation \eqref{eq:cosTheta} simplifies to
+\begin{equation} \label{eq:cosThetaCollHad}
+ \cos\theta^* = \frac{2x-1-m^2_{vis}/m^2_{\tau}}{1-m^2_{vis}/m^2_{\tau}}
+\end{equation}  
+Equation \eqref{eq:cosThetaCollHad} shows that, for a given value of the visible mass $m_{vis}$, the relation between
+$x$ and $\cos\theta^*$ is linear.\\
+
+For the fully--leptonic tau decay, an alternative parametrization consists in using the visible lepton energy in the tau rest
+frame ($E^*_l$) and $\cos\theta^*$.
+Equation \eqref{eq:cosTheta} and \eqref{eq:mVis} can be used to derive the transformation from 
+$(E^*_l, \cos\theta^*)$ to $(x_l,m_{\nu\nu})$:
+\begin{equation} \label{eq:transf}
+\begin{cases}
+ \cos\theta^* & =  \frac{2x_l}{ 1-\frac{m^2_{\nu\nu}}{m^2_{\tau}} } - 1 \\
+  E^*_l       & =  \frac{m_{\tau}}{2}(1-\frac{m^2_{\nu\nu}}{m^2_{\tau}})
+\end{cases}
+\end{equation}
+The Jacobian matrix $J$ for the transformation \eqref{eq:transf} is
+\begin{equation} \label{eq:transfJac}
+\left(
+\begin{array}{cc}
+  \frac{\partial \cos\theta^*}{\partial x_l} &  \frac{\partial \cos\theta^*}{\partial m_{\nu\nu}} \\
+  \frac{\partial E^*_l}{\partial x_l}              &  \frac{\partial E^*_l}{\partial m_{\nu\nu}}
+\end{array}
+\right) =
+\left(
+\begin{array}{cc}
+  \frac{2}{1-\frac{m^2_{\nu\nu}}{m^2_{\tau}}} & \frac{4x_lm_{\nu\nu}}{ (1-\frac{m^2_{\nu\nu}}{m^2_{\tau}})^2 m_{\tau}^2 } \\
+   0 & - \frac{m_{\nu\nu}}{m_{\tau}^2} \\
+\end{array}
+\right),
+\end{equation}
+with determinant
+$$
+|J|=\frac{2m_{\nu\nu}}{m_{\tau}^2 - m_{\nu\nu}^2}.
+$$ 
+In the approximation $m_l\sim0$, the physical region for $(E^*_l, \cos\theta^*)$ is defined by
+$-1\leq  \mbox{cos}\theta^* \leq 1$ and $0 \leq E^*_l \leq \frac{m_{\tau}}{2}$, which implies that 
+$0\leq x_l \leq 1$ and, for a fixed $x_l$, $0\leq m_{\nu\nu} \leq m_{\tau}\sqrt{1-x_l}$. 
+
+\subsection{Decay widths}
+
+In terms of the parameters described in Sec. \ref{sec:decayParam}, the probability density functions for the decay
+$\tau^-\to \ell^- \: \bar{\nu}_{\ell} \: \nu_{\tau}$, with a tau polarization $P_{\tau}=\pm1$, is given by 
+\begin{equation} \label{eq:lepDecay}
+\frac{d\Gamma}{dx_{\ell}dm_{\nu\nu}} \sim \frac{m_{\nu\nu}}{4m_{\tau}^2} [(m_{\tau}^2 +2m_{\nu\nu}^2 )(m_{\tau}^2 - m_{\nu\nu}^2) +
+P_{\tau}(m_{\tau}^2(2x_{\ell} -1) + m_{\nu\nu}^2)(-m_{\tau}^2+2m_{\nu\nu}^2)  ],
+\end{equation}
+which has been obtained from Ref. \cite{TauPol} using the transformation \eqref{eq:transf}.
+The distributions for the two polarization states are shown in Fig. \ref{fig:2DCorrLep}
+in the form of a density plot in the $(x_{\ell},m_{\nu\nu})$ plane.
+
+\begin{figure}[htbp]
+\centering
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/2DCorrLepMinus.pdf}
+  \label{fig:2DCorrLepMinus}
+}
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/2DCorrLepPlus.pdf}
+  \label{fig:2DCorrLepPlus}
+} \\
+\caption{Probability density function of the visible energy fraction $x_{\ell}$ and neutrino--pair mass $m_{\nu\nu}$ 
+in $\tau^-_{L,R}\to \ell \: 3\nu$ decays (obtained from Eq. \eqref{eq:lepDecay})}
+\label{fig:2DCorrLep}
+\end{figure}
+
+For the one prong decay $\tau^-\to \pi^- \: \nu_{\tau}$, with tau polarization $P_{\tau}=\pm1$,
+the decay width differential in the pion $x_h$ fraction is given by \cite{TauPol}
+\begin{equation}\label{eq:hadDecay}
+\frac{d\Gamma}{dx_h} = 1 + P_{\tau}(2x_h-1) 
+\end{equation}
+For the other hadronic decays, the formalism gets more involved due to the presence of spin one particles,
+for which, in addition, the finite decay width has to be taken into account \cite{TauPol}.
+By performing a numerical integration over the vector meson line shape parametrized as in Ref. \cite{TauPol}, the distributions
+shown in Fig. \ref{fig:hVectors} are obtained.
+
+The decay widths are separately computed for longitudinally ($L$) or transversely polarized ($T$) vector mesons.
+The results are reported in Fig. \ref{fig:hVectors} for the $\tau^-\to \rho^- \: \nu_{\tau}$ decay and
+in Fig. \ref{fig:hVectors2} for the $\tau^-\to a_1 \: \nu_{\tau}$ decay.
+
+
+\begin{figure}[htbp]
+\centering
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hRhoTMinus.pdf}
+  \label{fig:hRhoTMinus}
+}
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hRhoTPlus.pdf}
+  \label{fig:hRhoTPlus}
+} \\
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hRhoLMinus.pdf}
+  \label{fig:hRhoLMinus}
+}
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hRhoLPlus.pdf}
+  \label{fig:hRhoLPlus}
+} \\
+\caption{Probability density function for the decay $\tau_l^- \to \nu_{\tau} + v_{\alpha}$, with $l=L,R$,
+$v=\rho(\pi^-\pi^0)$ and $\alpha=T,L$ (obtained from a numerical integration of the analytical formulas
+in Ref. \cite{TauPol}, performed with the ROOT \cite{ROOT} built--in integrator).}
+\label{fig:hVectors}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hA1TMinus.pdf}
+  \label{fig:hA1TMinus}
+}
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hA1TPlus.pdf}
+  \label{fig:hA1TPlus}
+} \\
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hA1LMinus.pdf}
+  \label{fig:hA1LMinus}
+}
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hA1LPlus.pdf}
+  \label{fig:hA1LPlus}
+} \\
+\caption{Probability density function for the decay $\tau_l^- \to \nu_{\tau} + v_{\alpha}$, with $l=L,R$,
+$v=a_1(\pi^-\pi^+\pi^-)$ and $\alpha=T,L$ (obtained from a numerical integration of the analytical formulas
+in Ref. \cite{TauPol}, performed with the ROOT \cite{ROOT} built--in integrator).}
+\label{fig:hVectors2}
+\end{figure}
+
+As seen in the plots, there is a strong correlation between $P_{\tau}$ and $\langle x_h \rangle$, namely
+the left--handed polarized tau ($\tau^-_L$) tends to decay into a hard transversely--polarized $\rho^-$ or $a^-_1$,
+which in turn prefers to share its lab energy uniformly among the daughter pions.
+Conversely, a right--handed polarized tau ($\tau^-_R$) tends to decay into a hard longitudinally--polarized meson,
+for which the distinguishable pion (i.e. the pion with the same charge of the mother tau)
+is more likely to be soft, if the other pion(s) are 
+hard, or the other way round. Therefore, if the tau polarization were known and if it were possbile to distinguish
+the single pions inside $\tau_h$, the tau kinematics would be better constrained.
+
+Even though $P_{\tau}$ is not measurable, the spin of the mother resonance imposes a selection rule
+on the polarization states of the two tau leptons, namely only $RL$ or $LR$ combinations are allowed for a spin--one resonance
+(e.g. the $Z$ boson), only $RR$ or $LL$ are possible for a spin--0 (e.g. the Higgs boson).    
+
+Let's assume that the individual pions can be resolved inside the hadronically--decaying tau, and let's define $z$ to be 
+the fraction of energy of the visible decay particles in the lab frame taken by the distinguishable pion:
+$z\equiv E_{\pi}/E_{vis}$. For the $\rho^- \to \pi^- \pi^0$ decay, the probability density function are given by \cite{TauPol}:
+\begin{equation} \label{eq:dZrho}
+\begin{cases}
+\frac{d\Gamma(\rho^-_L)}{dz} & =  3(2z-1)^2 \\
+\frac{d\Gamma(\rho^-_T)}{dz} & =  6z(1-z) \\
+\end{cases}
+\end{equation}
+From \eqref{eq:dZrho}, the \textit{conditional} probability to observe $x_h$ given $z$ is
+\begin{equation} \label{eq:rhoCondZ}
+\frac{d\Gamma}{dx_h}(x_h|z) = \frac{\frac{d\Gamma_L}{dx_h}(x_h) \cdot \frac{d\Gamma(\rho^-_L)}{dz} + \frac{d\Gamma_T}{dx_h}(x_h) \cdot \frac{d\Gamma(\rho^-_T)}{dz}}
+{M_L \frac{d\Gamma(\rho^-_L)}{dz} + M_T \frac{d\Gamma(\rho^-_T)}{dz}}
+\end{equation}
+where $M_{\alpha}=\int_{0}^{1}\frac{d\Gamma_{\alpha}}{dx_h'}(x_h')dx_h'$.
+
+A similar formula exists for the $a_1^-$ decay. It is useful to distinguish the case where the three pions
+are individually resolved from the case where the the undistinguishable pions cannot be resolved.
+In the former case, the ideal polarimeter to be used to condition the decay width is provided by the 
+$\cos\psi$ variable introduced by Ref. \cite{TauPol3}:
+\begin{equation}
+ \cos\psi \equiv \frac{8m_{\tau}^2 \vec{p}_1\cdot(\vec{p}_2 \times \vec{p}_3)/|\vec{p}_1+\vec{p}_2+\vec{p}_3|}
+{\sqrt{-\lambda(\lambda(m_{\tau}^2,m_{12}^2,m_{\pi}^2)\lambda(m_{\tau}^2,m_{13}^2,m_{\pi}^2)\lambda(m_{\tau}^2,m_{23}^2),m_{\pi}^2}}
+\end{equation}
+with $\lambda(x,y,z)=x^2+y^2+z^2-2xy-2yz-2zx$.
+If the undistinguishable pions are not individually resolved, one needs to integrate them out.
+To do so, a numerical intergration of Eq. (46) and (47) from Ref. \cite{TauPol2}
+has been performed to obtain $d\Gamma(a_{1\; \alpha}^-)/dz$.
+The resulting distributions are reported in Fig. \ref{fig:hzA1}.\\
+
+\begin{figure}[htbp]
+\centering
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hZA1L.pdf}
+  \label{fig:hZA1L}
+}
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/hZA1T.pdf}
+  \label{fig:hZA1T}
+} \\
+\caption{Probability density function of the distinguishable pion energy fraction
+in $a_{1\; \alpha} \to \pi^-\pi^0\pi^0$ decay, $\alpha=T,L$ (obtained from a numerical integration
+of the analytical formula in Ref. \cite{TauPol2}).
+The unphysical kink in \ref{fig:hZA1L} is currently under investigation.}
+\label{fig:hzA1}
+\end{figure}
+
+Using the numerical values of the histograms in Fig. \ref{fig:hzA1}, a conditional probability density
+$d\Gamma/dx_h$ for the $a_1$ decays, similar to Eq. \eqref{eq:rhoCondZ}, can be derived.
+The conditional probabilities for the $\rho$ and $a_1$ decays are represented in Fig. \ref{fig:2DCorrRho}
+in the form of a density plot.
+
+\begin{figure}[htbp]
+\centering
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/2DCorrRhoMinus.pdf}
+  \label{fig:2DCorrRhoMinus}
+}
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/2DCorrRhoPlus.pdf}
+  \label{fig:2DCorrRhoPlus}
+} \\
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/2DCorrA1Minus.pdf}
+  \label{fig:2DCorrA1Minus}
+}
+\subfigure[]{
+  \includegraphics[width=0.45\linewidth]{figures/MassReconstruction/2DCorrA1Plus.pdf}
+  \label{fig:2DCorrA1Plus}
+} \\
+\caption{Conditional probability density functions of the visible energy fraction $x_h$ in $\tau^-_{L,R}\to\rho^-$ and $a_1^-$ decays
+for a fixed value of the the fraction of the $\rho$ ($a_1$) energy taken by the distinguishable pion
+(from Eq. \eqref{eq:rhoCondZ} and Fig. \ref{fig:hzA1}).}
+\label{fig:2DCorrRho}
+\end{figure}
+
+A simplified decay width for the semileptonic decays (phase--space), valid for unpolarized taus ($P_{\tau}=0$),
+consists in assuming an uniform probability density:
+\begin{equation}\label{eq:hadDecayPS}
+\frac{d\Gamma}{dx_h} = \frac{1}{1- \frac{m^2_{vis}}{m^2_{\tau}}},
+\end{equation}
+where $m_{vis}$ is the measured visible $\tau_h$ mass. This simple formula
+already provides a good description of the hadronic decay widths.
+Figure \ref{fig:makeSVfitToyMCplots_X1_m90_beforeVisPtCuts} compares the visible energy fractions
+for hadronically--decaying taus in a $Z\to\tau\tau$ Monte Carlo sample, using Eq. \eqref{eq:hadDecayPS}
+or from the full TAUOLA \cite{tauola} simulation. 
+
+\begin{figure}[htbp]
+\centering
+\subfigure[]{
+  \includegraphics[width=0.80\linewidth]{figures/MassReconstruction/makeSVfitToyMCplots_X2_m90_beforeVisPtCuts.pdf}
+}
+\caption{Comparison between the visible energy fractions $x_h$
+for hadronically--decaying taus in a $Z\to\tau\tau$ Monte Carlo sample, using Eq. \eqref{eq:hadDecayPS}
+or from the full TAUOLA \cite{tauola} simulation (from Ref. \cite{SVfitDevelop}).}
+\label{fig:makeSVfitToyMCplots_X1_m90_beforeVisPtCuts}
+\end{figure}
+
+\subsection{Missing transverse energy}
+
+For a given value of the dynamical parameters (Sec. \ref{sec:decayParam}),
+the four--momenta of the decay neutrinos are univocally determined:
+\begin{equation}
+ p_{\nu}^{\mu}  = p_{\nu}^{\mu}(\phi,x,  m_{\nu\nu}  | p^{\mu}),
+\end{equation}
+once the four--momentum of the visible decay products ($p_{\mu}=(E,p_x,p_y,p_z)$) has been measured.
+
+The $(\phi,x,m_{\nu\nu})$ parameters can be related to the tau lepton four--momentum in the lab frame
+$(E^{\tau} ,p_x^{\tau},p_y^{\tau},p_z^{\tau})$ via the following transformations.
+First, the momenta $p^*$ of the visible particles in
+the tau rest frame are obtained from the visible mass $m=(E^2-p^2)^{1/2}$) and $m_{\nu\nu}$ using Eq. \eqref{eq:mVis}.
+The cosine of the decay angle $\theta^*$
+between the direction of the visible particles and the tau momentum is obtained from
+$x$, $p$, $p^*$ and $m$
+using Eq. \eqref{eq:cosTheta}.
+Given $\theta^*$, $p$ and $p^*$, the decay angle $\theta$ in the lab frame can
+be computed by taking advantage of the invariance of the momentum component orthogonal to the tau lepton direction of flight:
+$$
+p^*\sin\theta^* = p\sin\theta.
+$$
+The polar coordinates of the tau lepton direction
+with respect to the visible particle are then given by $\mathbf{u}= (1, \cos^{-1}\theta, \phi)$.
+
+To express $\mathbf{u}$ in the global Cartesian $(x,y,z)$ reference frame with versors
+$(\mathbf{x},\mathbf{y},\mathbf{z})$, a rotation is needed.
+This is achieved by a rotation matrix with Euler angles $(\alpha,\beta,\gamma)$ satisfying
+\begin{equation}
+ \begin{cases}
+  \cos\alpha & =  [(\vec{p}_T \times \mathbf{z} ) \cdot \mathbf{x}] / p\\
+  \cos\beta  & =  p_{z}/p\\
+  \cos\gamma & =  1.
+ \end{cases}
+\end{equation}
+The energy of the tau lepton is simply given by $E^{\tau} = E/x$. 
+
+If the neutrinos from the tau decay
+are the only source of invisible energy in the event, than the vectorial sum of their momenta is experimentally
+constrained by the missing transverse energy $\vec{E}_T^{miss}$.
+In realistic scenarios, detector resolution and fluctuations in the undetectable
+part of the event smear $\vec{E}_T^{miss}$ around the true value $\sum_{i}\vec{p}_T^{\nu \; i}$.
+The compatibility between the hypothesis $\sum_{i}\vec{p}_T^{\nu \; i}$ and an observed value of $\vec{E}_T^{miss}$
+is quantified by the missing transverse energy likelihood $L(\vec{E}_T^{miss} | \sum_{i}\vec{p}_T^{\nu \; i})$.
+
+The $\vec{E}_T^{miss}$ likelihood is obtained from the PF--significance algorithm documented in Ref. \cite{JME-10-011}.
+Particles reconstructed by the particle--flow algorithm are grouped into exclusive collections of objects,
+depending on whether they are clustered inside jets, are isolated (e.g leptons), or unclustered.
+The trasverse momentum $\vec{E}_T^{i}$ of the $i$--th object is measured with a covariance matrix
+$$
+  \mathbf{U}_i = 
+\left(
+  \begin{array}{cc}
+ \sigma^2_{E_T \; i} & 0 \\
+   0  &  \sigma^2_{\phi \; i} \\
+  \end{array}
+\right),
+$$ 
+evaluated in the reference frame with axes parallel and perpendicular to $\vec{E}_T^{i}$.
+The $U_{00}$ and $U_{11}$ elements depend in general on the $p_T$ and $\eta$ of the object. 
+After a rotation into the global $(x,y,z)$ CMS reference frame, the covariance matrices are summed together:
+$$
+\mathbf{V}_i = \sum_i R(\phi)^{-1}\mathbf{U}_iR(\phi).
+$$
+In the gaussian approximation, the likelihood for observing $\vec{E}_T^{miss}$ given a true missing energy
+$\sum_{i}\vec{p}_T^{\nu \; i}$ is given by
+\begin{equation}
+ L(\vec{E}_T^{miss} | \sum_{i}\vec{p}_T^{\nu \; i}) = \frac{1}{\sqrt{2\pi|\mathbf{V}|}}e^{\frac{1}{2}
+ (\vec{E}_T^{miss} - \sum_{i}\vec{p}_T^{\nu \; i})^T\mathbf{V}^{-1}(\vec{E}_T^{miss} - \sum_{i}\vec{p}_T^{\nu \; i})}
+\end{equation}
+
+\subsection{The SVfit likelihood} \label{sec:SVfitLike}
+
+Let's denote by $\mathbf{x}_u=(\mathbf{x}_u^1,\mathbf{x}_u^2)$ the ensemble of dynamical parameters necessary
+to describe the decay of the first and second tau lepton (Sec. \ref{sec:decayParam}).
+The measurements from which the di--tau mass can be constrained consist of the 
+four--momentum of the visible decay products ($p_{\mu}^1$ and $p_{\mu}^2$), the reconstructed missing
+transverse energy ($\vec{E}_T^{miss}$), and possibly the fraction of visible energy in the lab frame taken by the
+distinguishable pions ($z_1$ and $z_2$). 
+Equation \eqref{eq:DLM} then reads
+
+\begin{equation} \label{eq:SVfit}
+\begin{split}
+L_{SVfit}(M_{\tau\tau}| p_{\mu}^1,p_{\mu}^2,z_1,z_2)  \propto 
+\sum_{\alpha = L,R}\sum_{\beta = L,R}
+\gamma_{\alpha \beta} \int_{\Omega}  \frac{d\Gamma_1^{\alpha}(\mathbf{x}_u^1 | z_1)}{d\mathbf{x}_u^1}
+\frac{d\Gamma_2^{\beta}(\mathbf{x}_u^2 | z_2)}{\mathbf{x}_u^2} & \\
+  \times  \; \mbox{exp} \left\{ \frac{1}{2}
+\left(\vec{E}_T^{miss} - \sum_{i}\vec{p}_T^{\nu \; i}(\mathbf{x}_u^i | p_{\mu}^i)\right)^T
+\mathbf{V}^{-1}
+\left(\vec{E}_T^{miss} - \sum_{i}\vec{p}_T^{\nu \; i}(\mathbf{x}_u^i | p_{\mu}^i)\right)
+\right\} & \\
+ \times  \; \delta(M_{\tau\tau} - M_{\tau\tau}(\mathbf{x}_u^1,\mathbf{x}_u^2 | p_{\mu}^1, p_{\mu}^2 ) ) 
+d\mathbf{x}_u^1 d\mathbf{x}_u^2 &
+\end{split}
+\end{equation}
+
+The integration volume $\Omega$ is subject to the physical constraints of Sec. \ref{sec:alternativeParam}.
+Uniform probability density functions for the $\phi$ angles has been assumed: $d\Gamma/d\phi = 1/2\pi$.
+The functions $d\Gamma/d\mathbf{x}_u$ are proportional to the decay widths \eqref{eq:lepDecay}, \eqref{eq:hadDecay}
+or \eqref{eq:rhoCondZ}. 
+The sum runs over all possible combinations of tau polarizations, with the $\gamma_{\alpha\beta}$ matrix
+taking care of the correct combinatorics. In the SM,
+\begin{equation}\label{eq:gammaH}
+\begin{cases}
+ \gamma_{LL}=\gamma_{RR} = \frac{1}{2}\\
+ \gamma_{LR}=\gamma_{RL} = 0 
+\end{cases}
+\end{equation}
+for the Higgs boson decaying to $\tau^-\tau^+$ and
+\begin{equation}\label{eq:gammaZ}
+\begin{cases}
+ \gamma_{LL}=\gamma_{RR} = 0\\
+ \gamma_{LR}= \frac{1}{2}(1 - \langle P_{\tau}\rangle)\\
+ \gamma_{RL}= \frac{1}{2}(1 + \langle P_{\tau}\rangle)\\
+\end{cases}
+\end{equation}
+for the $Z$ boson at the pole, where $\langle P_{\tau}\rangle = \frac{-2va}{a^2+v^2}$ and
+$v=1/2+2\sin^2\theta_{W}$, $a=-1/2$ \cite{PDG}. Numerically, $\gamma_{LR} \approx 0.576$ and  $\gamma_{LR} \approx 0.424$,
+showing that a small polarization of the taus arises in the $Z\to\tau^-\tau^+$ decay as consequence of the chiral structure
+of the SM Lagrangian (Sec. \ref{sec:Higgs}).
+
+The assumption $\gamma_{\alpha \beta} = 1/4 \; \forall \alpha,\beta$ is denoted as the \textit{unpolarized case} and
+can be obtained from \eqref{eq:SVfit} by setting $P_{\tau}=0$.
+
+In real life, it is not possible to classify a priori one event as coming from the decay of the $Z$ boson or from
+the decay of a resonance $\phi$ with different chiral coupling to tau leptons.
+One possibility is to re--interpret the $\gamma$ matrix as a dynamical quantity that 
+assumes the value predicted for the $Z$ resonance (Eq. \eqref{eq:gammaZ}) for $M_{\tau\tau}\approx M_Z$,
+and smoothly converges to \eqref{eq:gammaH} for higher mass.
+For example, assuming $\phi=H$, $M_H\gtrsim 110$ GeV, one could use:
+\begin{equation}
+\begin{split}
+ \gamma(M_{\tau\tau}) & =
+\left[ \Theta\left(M_Z-M_{\tau\tau}\right) +
+\frac{M_{\tau\tau}-(M_Z+\sigma_Z)}{\sigma_Z} \right] \gamma^Z +\\
+                                       &  \left[\frac{M_{\tau\tau}-M_Z}{\sigma_Z} +
+ \Theta\left(M_{\tau\tau}-(M_Z+\sigma_Z)\right) \right] \gamma^H  ,
+\end{split}
+\end{equation}
+where $\sigma_Z$ is the expected resolution of the $Z\to\tau\tau$ peak. 
+
+Finally, it should be noted that Eq. \eqref{eq:SVfit} assumes that every tau decay
+is reconstructed with 100\% purity. For the leptonic decays ($\tau_{e}$, $\tau_{\mu}$)
+this is a good assumption. For the semi--leptonic decays, the approximation is less precise,
+as seen from Fig. \ref{fig:tauDecyModes}. To account for migrations of tau decays from one
+reconstructed decay mode to another, Eq. \ref{eq:SVfit} should be modified by averaging
+over the generated tau decay modes, with weights equal to the probability for a generated decay mode to
+be reconstructed in the observed decay mode (i.e. the entries of the matrix in Fig. \ref{fig:tauDecyModes}).
+
+The integration on the right--hand side of \eqref{eq:SVfit} is performed numerically using the VEGAS program \cite{VEGAS}.
+For each event, the estimator of the tau lepton mass is chosen as the value
+that maximises $L_{SVfit}(M_{\tau\tau})$. More specifically, $L_{SVfit}$ is computed for a grid of
+$2.5$ GeV spaced values of $M_{\tau\tau}$ in the range $[0,100]$ GeV, followed by 
+$2.5\%$ spaced values up to 3 TeV.
+The computing time needed to perform the numerical integration for all points of the grid is about 1 sec.
+on a $2.27$~GHz Intel\TReg~Xeon\TReg~L5520 processor.
+The $L_{SVfit}$ values for the mass point giving the maximum likelihood,
+and for the point before and after, are fitted with a parabola. The mass value at which the parabola fit is at a maximum
+provides the final di--tau mass estimator, $M_{\tau\tau}^{SVfit}$.
+
+Different combinations of the likelihood functions for the tau decay have been compared. The simple
+phase--space formula for the $\tau_h$ decay (Eq. \eqref{eq:hadDecayPS}) already provides pretty good 
+performances for all hadronic final states. Including the tau polarizations in \eqref{eq:SVfit}
+brings only to a modest improvement.  In light of the substantially longer computing time needed to process
+the four different polarizations hypothesis, it was preferred to choose Eq. \eqref{eq:hadDecayPS}, for the
+semi--leptonic tau decays, and Eq. \eqref{eq:lepDecay} for the fully--leptonic. The expected performances
+of the SVfit algorithm, with this choice of the likelihood function, are compared in Fig. \ref{fig:svfitComp4} 
+for a simulated sample $Z\to\tau\tau$ and for three signal samples $H\to\tau\tau$ with
+$M_{H}=120,\:180,\:250$ GeV ($\tau_{\ell}\tau_h$ channel). The missing energy
+simulated in these events has a RMS of about $10$ GeV in the $x$ and $y$ direction. The resulting relative mass resolution
+is found to be $\approx 20\%$ for $M_H\lesssim145$ GeV. For higher Higgs masses, the SVfit mass shape departs
+more and more from a gaussian. Interestingly, this peculiar triangular--like shape, with a mode close to the true mass
+and a long tail extending down to the lowest possible value $M_{\tau\tau}^{SVfit} \geq M_{\tau\tau}^{vis}$,
+resembles very closely the maximal lower--bound estimator discussed in Sec. \ref{sec:MinMass}.
+
+\begin{figure}[htbp]
+\centering
+\subfigure[]{
+  \includegraphics[width=0.65\linewidth]{figures/MassReconstruction/svfitComp4.pdf}
+}
+\caption{SVfit mass distributions in a sample of simulated $Z\to\tau\tau$ and $H\to\tau\tau$
+in the $\tau_{\mu}\tau_h$ channel, obtained
+using the phase--space likelihood (Eq. \eqref{eq:hadDecayPS}) for the $\tau_h$ decay and the 
+matrix element likelihood for $\tau_{\mu}$ (Eq. \eqref{eq:lepDecay}). The missing transverse energy has
+a RMS of about $10$ GeV.}
+\label{fig:svfitComp4}
+\end{figure}
+
+ 
+
+
+  
+

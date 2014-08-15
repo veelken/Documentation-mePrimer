@@ -1,0 +1,312 @@
+\section{Performance}
+\label{sec:performance}
+
+Distributions of the tau--pair mass $M_{\tau\tau}$ reconstructed in 
+$Z/\gamma^{*} \rightarrow \tau \tau$ and Higgs $\rightarrow \tau \tau$ events are shown in 
+Figs.~\ref{fig:perfCompPSvsMEkine_mutau},~\ref{fig:perfCompFitvsInt_mutau},~\ref{fig:perfCompPSvsMEkine_ditau},~\ref{fig:perfCompFitvsInt_ditau},~\ref{fig:perfCompPSvsMEkine_emu} and~\ref{fig:perfCompFitvsInt_emu},
+separately for semi--leptonic ($\tau\tau \rightarrow \mu \tau_{had}$), fully hadronic ($\tau\tau \rightarrow \tau_{had} \tau_{had}$) 
+and leptonic ($\tau\tau \rightarrow e \mu$) decays of tau pairs~\footnote{
+  We ommit the neutrinos produced in the tau decays when referring to individual decay modes of tau--pairs.
+}.
+The distributions compare different likelihood models for the tau decay kinematics ({\it cf.}\ sections~\ref{sec:psKine} and~\ref{sec:meKine})
+and marginalization versus profile likelihood method.
+The events are selected by applying kinematic cuts similar to the Standard Model Higgs $\rightarrow \tau \tau$ analysis~\cite{HIG-12-018,HIG-12-032}:
+Electrons and muons (denoted by $\ell$) are selected within $\vert \eta_{\ell} \vert < 2.1$ and are required to satisfy $P_{T}^{\ell} > 15$~\GeV.
+Hadronically decaying taus are required to pass $\vert \eta_{\tau_{had}} \vert < 2.3$ and $P_{T}^{\tau_{had}} > 20$~\GeV ($P_{T}^{\tau_{had}} > 35$~\GeV)
+in the $\mu \tau_{had}$ ($\tau_{had} \tau_{had}$) decay channel respectively.
+
+%\subsection{$\ell+\tau_{had}$ Decays}
+%\label{sec:performance_mutau}
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_muTau_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_muTau_compLikelihoodModels_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_muTau_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_muTau_compLikelihoodModels_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_muTau_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_muTau_compLikelihoodModels_log.pdf}
+\caption{\captiontext 
+  Distributions of $M_{\tau\tau}$ reconstructed 
+  in simulated $Z/\gamma^{*} \rightarrow \tau \tau \rightarrow \mu \tau_{had}$ (top) 
+  and Higgs $\rightarrow \tau \tau \rightarrow \mu \tau_{had}$ (center and bottom) events
+  using the ``Phase--Space'' and ``Matrix Element'' likelihood models for tau decay kinematics described in sections~\ref{sec:psKine} and~\ref{sec:meKine},
+  shown in linear (left) and logarithmic (right) scale.
+  $M_{\tau\tau}$ solutions are obtained via marginalization.
+}
+\label{fig:perfCompPSvsMEkine_mutau}
+\end{center}
+\end{figure} 
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_muTau_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_muTau_Fit_vs_Int_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_muTau_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_muTau_Fit_vs_Int_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_muTau_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_muTau_Fit_vs_Int_log.pdf}
+\caption{\captiontext 
+  $M_{\tau\tau}$ distributions reconstructed 
+  in simulated $Z/\gamma^{*} \rightarrow \tau \tau \rightarrow \mu \tau_{had}$ (top) 
+  and Higgs $\rightarrow \tau \tau \rightarrow \mu \tau_{had}$ (center and bottom) events
+  using marginalization compared to profiling of the likelihood functions.
+  Distributions are shown in linear (logarithmic) scale on the left (right).
+}
+\label{fig:perfCompFitvsInt_mutau}
+\end{center}
+\end{figure} 
+
+%\subsection{$\tau_{had}+\tau_{had}$ Decays}
+%\label{sec:performance_ditau}
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_diTau_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_diTau_compLikelihoodModels_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_diTau_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_diTau_compLikelihoodModels_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_diTau_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_diTau_compLikelihoodModels_log.pdf}
+\caption{\captiontext 
+  Distributions of $M_{\tau\tau}$ reconstructed 
+  in simulated $Z/\gamma^{*} \rightarrow \tau \tau \rightarrow \tau_{had} \tau_{had}$ (top) 
+  and Higgs $\rightarrow \tau \tau \rightarrow \tau_{had} \tau_{had}$ (center and bottom) events
+  using the ``Phase--Space'' and ``Matrix Element'' likelihood models for tau decay kinematics described in sections~\ref{sec:psKine} and~\ref{sec:meKine},
+  shown in linear (left) and logarithmic (right) scale.
+  $M_{\tau\tau}$ solutions are obtained via marginalization.
+}
+\label{fig:perfCompPSvsMEkine_ditau}
+\end{center}
+\end{figure} 
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_diTau_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_diTau_Fit_vs_Int_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_diTau_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_diTau_Fit_vs_Int_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_diTau_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_diTau_Fit_vs_Int_log.pdf}
+\caption{\captiontext 
+  $M_{\tau\tau}$ distributions reconstructed 
+  in simulated $Z/\gamma^{*} \rightarrow \tau \tau \rightarrow \tau_{had} \tau_{had}$ (top) 
+  and Higgs $\rightarrow \tau \tau \rightarrow \tau_{had} \tau_{had}$ (center and bottom) events
+  using marginalization compared to profiling of the likelihood functions.
+  Distributions are shown in linear (logarithmic) scale on the left (right).
+}
+\label{fig:perfCompFitvsInt_ditau}
+\end{center}
+\end{figure} 
+
+%\subsection{$\ell+\ell$ Decays}
+%\label{sec:performance_emu}
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_eleMu_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_eleMu_compLikelihoodModels_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_eleMu_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_eleMu_compLikelihoodModels_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_eleMu_compLikelihoodModels_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_eleMu_compLikelihoodModels_log.pdf}
+\caption{\captiontext 
+  Distributions of $M_{\tau\tau}$ reconstructed 
+  in simulated $Z/\gamma^{*} \rightarrow \tau \tau \rightarrow e \mu$ (top) 
+  and Higgs $\rightarrow \tau \tau \rightarrow e \mu$ (center and bottom) events
+  using the ``Phase--Space'' and ``Matrix Element'' likelihood models for tau decay kinematics described in in sections~\ref{sec:psKine} and~\ref{sec:meKine},
+  shown in linear (left) and logarithmic (right) scale.
+  $M_{\tau\tau}$ solutions are obtained via marginalization.
+}
+\label{fig:perfCompPSvsMEkine_emu}
+\end{center}
+\end{figure} 
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_eleMu_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZplusJets_eleMu_Fit_vs_Int_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_eleMu_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs130_eleMu_Fit_vs_Int_log.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_eleMu_Fit_vs_Int_linear.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_Higgs300_eleMu_Fit_vs_Int_log.pdf}
+\caption{\captiontext 
+  $M_{\tau\tau}$ distributions reconstructed 
+  in simulated $Z/\gamma^{*} \rightarrow \tau \tau \rightarrow e \mu$ (top) 
+  and Higgs $\rightarrow \tau \tau \rightarrow e \mu$ (center and bottom) events
+  using marginalization compared to profiling of the likelihood functions.
+  Distributions are shown in linear (logarithmic) scale on the left (right).
+}
+\label{fig:perfCompFitvsInt_emu}
+\end{center}
+\end{figure} 
+
+The choice of marginalization (labeled ``Int'' in the figures) versus profile likelihood method (``Fit'') is seen to have a sizable effect
+on the distribution of the reconstructed tau--pair mass, while the choice of likelihood model is seen to make little difference.
+
+The distributions reconstructed using the profile likelihood method 
+are very similar for semi--leptonic, fully hadronic and leptonic tau--pair decays.
+The distributions for Higgs $\rightarrow \tau \tau$ events of $M = 130$~\GeV and $M = 300$~\GeV
+are almost symmetric and peak close to the true mass.
+The distribution obtained by the profile likelihood method in $Z/\gamma^{*} \rightarrow \tau \tau$ events is less symmetric.
+The important features are a shift of the maximum, indicating a trend to overestimate the true mass $M$ of the tau--pair,
+and a visibly pronounced tail in direction towards high $M_{\tau\tau}$ values.
+The symmetry of the distributions observed for simulated Higgs events of true mass $M = 130$~\GeV and $M = 300$~\GeV 
+is due to the factor $\sin \theta_{1} \cdot \sin \theta_{2}$ contained
+in the pseudo--Jacobian term~\ref{eq:pseudoJacobianTerm} which we add to the likelihood function
+in case tau--pair masses are reconstructed via the profile likelihood method ({\it cf.}\ section~\ref{sec:likelihoods}).
+The factor corresponds to assuming that the two taus are preferentially produced in direction perpendicular
+to the $Z/\gamma^{*}$ respectively Higgs direction and hence have about the same transverse momentum in the laboratory frame.
+The reason for the shift of the maximum and for the high mass tail of the $M_{\tau\tau}$ distribution is that
+the transverse momentum distribution of tau--pairs originating from $Z/\gamma^{*} \rightarrow \tau \tau$ decays gets significantly biased
+by the kinematic cuts applied in the event selection:
+In order to pass $P_{T}$ cuts of $15$~\GeV, $20$~\GeV or $35$~\GeV 
+the visible decay products need to carry a fraction $X \gtrsim 0.35$, $X \gtrsim 0.45$ and $X \gtrsim 0.8$ of the tau energy, respectively.
+In particular in case of leptonic tau decays even moderate $P_{T}$ cuts remove a sizable fraction of $Z/\gamma^{*} \rightarrow \tau \tau$ events 
+({\it cf.}\ Fig.~\ref{fig:visEnFractionModelComparisson}).
+Events with low visible energy fractions $X$ tend to populate the low mass tail of the $M_{\tau\tau}$ distribution,
+while $Z/\gamma^{*} \rightarrow \tau \tau$ events which pass the kinematic cuts are likely to populate the high mass region.
+We aim to compensate for this effect with the $\log M_{\tau\tau}$ factor in the pseudo--Jacobian term~\ref{eq:pseudoJacobianTerm}.
+We find that the factor does indeed reduce the high mass tail, albeit not enough to compensate for the effect entirely.
+
+The tau--pair mass distributions reconstructed via the marginalization method are asymmetric.
+The distributions exhibit a maximum close to the true mass,
+with a rather rapidly falling edge and reduced tail towards high masses.
+Tails extending into the low mass region are more pronounced,
+in particular in case of leptonic decays of tau--pairs.
+The difference in resolution between 
+$\tau\tau \rightarrow \mu \tau_{had}\nu$, $\tau\tau \rightarrow \tau_{had} \tau_{had}$ and $\tau\tau \rightarrow e \mu$ decays
+is explained by Fig.~\ref{fig:visEnFractionModelComparisson}:
+In semi--leptonic and fully hadronic tau--pair decays the visible decay products of at least one tau are likely to carry
+a sizable energy fraction $X$.
+Further, in case the visible decay products of one tau carry sizable $X$, 
+the visible decay products of the second tau may either carry small to moderate $X$,
+in which case the event has significant genuine \MET,
+or the visible decay products of the second tau carry a sizable visible energy fraction too.
+Both cases allow for the mass of the tau--pair to be reconstructed with rather precisely.
+The difficult to reconstruct decays are those in which both taus decay 
+into visible decay products of small to moderate $X$:
+In $Z/\gamma^{*} \rightarrow \tau \tau$ as well as in Higgs $\rightarrow \tau \tau$ events
+the two taus are typically ``back--to--back'' in azimuth, 
+such that the momenta of the neutrinos produced in the tau decays tend to cancel,
+resulting in low \MET if the visible energy fractions $X$ of both taus are approximately equal.
+In case the visible decay products of both tau decays carry small to moderate $X$,
+the ``back--to--back'' topology results in an experimental signature of low $P_{T}$ visible decay products plus low \MET,
+identical to that arising from the decay of a tau--pair of lower mass.
+For $Z/\gamma^{*}$ and $M = 130$~\GeV Higgs events such low mass tails are reduced significantly by the visible $P_{T}$ cuts,
+as events with low $X$ are removed.
+For the $M = 300$~\GeV Higgs sample, for which the kinematic cuts remove few such events only~\footnote{
+  The $P_{T}$ cuts of $15$~\GeV, $20$~\GeV and $35$~\GeV correspond to requiring visible energy fractions of
+  $X \gtrsim 0.10$, $X \gtrsim 0.15$ and $X \gtrsim 0.25$ for taus originating from $M = 300$~\GeV Higgs $\rightarrow \tau \tau$ decays.
+},
+the asymmetry of the $M_{\tau\tau}$ distributions reconstructed in semi--leptonic, fully hadronic and leptonic tau--pair decays is visible clearly.
+
+
+%\subsection{Analysis of resolution and response}
+
+%response = Mtautau(rec)/Mtautau(true)
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_diTau_PSkine_woLogM_Int_response_vs_mA_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_diTau_PSkine_woLogM_Int_resolution_vs_mA_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_eleMu_PSkine_woLogM_Int_response_vs_mA_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_eleMu_PSkine_woLogM_Int_resolution_vs_mA_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_muTau_PSkine_woLogM_Int_response_vs_mA_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_muTau_PSkine_woLogM_Int_resolution_vs_mA_asymmetric.pdf}
+\caption{\captiontext 
+  Response (left) and resolution (right) of $M_{\tau\tau}$ reconstructed in simulated $Z/\gamma^{*} \rightarrow \tau \tau$ and Higgs $\rightarrow \tau \tau$ events
+  as function of the true mass, $M$, of the tau pair
+  for $\ell\tau_{had}$ (top), $\tau_{had}\tau_{had}$ (center) and $\ell\ell$ (bottom) decays.
+  $M_{\tau\tau}$ solutions are obtained via marginalization of the ``Phase--Space'' likelihood model for tau decay kinematics.
+}
+\label{fig:performance_vs_mA}
+\end{center}
+\end{figure} 
+
+Summarizing the discussion on SVfit performance,
+the location of the maximum and the extent of low mass and high mass tails 
+in $\tau\tau \rightarrow \mu \tau_{had}$, $\tau\tau \rightarrow \tau_{had} \tau_{had}$ and $\tau\tau \rightarrow e \mu$ decay channels
+is shown in Fig.~\ref{fig:performance_vs_mA}
+for tau--pairs originating from $Z/\gamma^{*}$ decays and from decays of Higgs bosons of different masses.
+We quantify the extend of low mass (high mass) tails by the root--mean--square (RMS) of the $M_{\tau\tau}$ distributions,
+computed for all events $j$ for which the reconstructed tau--pair mass is below (above) the maximum, $M_{\tau\tau}^{max}$, of the distribution:
+\begin{equation}
+\sigma_{+} (M_{\tau\tau}) = \sqrt{\frac{1}{N_{+}} \sum_{M_{\tau\tau}^{j} > M_{\tau\tau}^{max}}  \left( M_{\tau\tau}^{j} > M_{\tau\tau}^{max} \right)^2}, \qquad
+\sigma_{-} (M_{\tau\tau}) = \sqrt{\frac{1}{N_{-}} \sum_{M_{\tau\tau}^{j} < M_{\tau\tau}^{max}}  \left( M_{\tau\tau}^{j} - M_{\tau\tau}^{max} \right)^2},
+\label{eq:Mtautau_resolution}
+\end{equation}
+where $N_{+}$ ($N_{-}$) denotes the number of events with $M_{\tau\tau}^{j} > M_{\tau\tau}^{max}$ ($M_{\tau\tau}^{j} < M_{\tau\tau}^{max}$).
+
+The profile likelihood method has been used in the first version of SVfit, documented in~\cite{AN-11-165}.
+This version has been used in the $H \rightarrow \tau^{+} \tau^{-}$ searches performed by CMS 
+in the data collected in $2010$ and $2011$~\cite{Chatrchyan:2011nx,Chatrchyan:2012vp}.
+The marginalization method has been used in the search for $H \rightarrow \tau^{+} \tau^{-}$ decays in the $2012$ data~\cite{HIG-12-018}.
+The marginalization method was found to better separates the $H \rightarrow \tau^{+} \tau^{-}$ signal 
+from the dominant irreducible $Z/\gamma^{*} \rightarrow \tau \tau$ background,
+providing an improvement in sensitivity to find the Standard Model Higgs boson in the decay mode Higgs $\rightarrow \tau \tau$ by about $20\%$,
+compared to the profile likelihood method.
+We recommend to use the marginalization method in all applications in which a tau--pair mass is to be reconstructed,
+provided a computing time of $1$~s per event is permissible.
+
+
+%\subsection{Dependence on acoplanarity}
+%\label{sec:performance_vs_dphi}
+%
+%\begin{figure}
+%\setlength{\unitlength}{1mm}
+%\begin{center}
+%  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_diTau_PSkine_woLogM_Int_response_vs_dPhi_asymmetric.pdf}
+%  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_diTau_PSkine_woLogM_Int_resolution_vs_dPhi_asymmetric.pdf}
+%  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_eleMu_PSkine_woLogM_Int_response_vs_dPhi_asymmetric.pdf}
+%  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_eleMu_PSkine_woLogM_Int_resolution_vs_dPhi_asymmetric.pdf}
+%  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_muTau_PSkine_woLogM_Int_response_vs_dPhi_asymmetric.pdf}
+%  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_muTau_PSkine_woLogM_Int_resolution_vs_dPhi_asymmetric.pdf}
+%\caption{\captiontext 
+%  Response (left) and resolution (right) of $M_{\tau\tau}$ reconstructed in simulated $Z/\gamma^{*} \rightarrow \tau \tau$ and Higgs $\rightarrow \tau \tau$ events
+%  as function of acoplanarity angle $\Delta\phi$ between the visible tau decay products,
+%  for $\ell\tau_{had}$ (top), $\tau_{had}\tau_{had}$ (center) and $\ell\ell$ (bottom) decays.
+%  $M_{\tau\tau}$ solutions are obtained via marginalization of the ``Phase--Space'' likelihood model for tau decay kinematics.
+%}
+%\label{fig:performance_vs_dphi}
+%\end{center}
+%\end{figure} 
+
+
+\subsection{Dependency on $\MET$ resolution}
+\label{sec:performance_vs_metresolution}
+
+In Fig.~\ref{fig:performance_vs_metresolution} we show the dependency on the \MET resolution
+of the location of the maximum of the $M_{\tau\tau}$ distribution
+and of the resolution of the low and high mass tails (computed according to equation~\ref{eq:Mtautau_resolution}).
+Typical resolutions on the two components \METx and \METy of missing transverse momentum
+amount to $\sigma (\METx) = \sigma (\METy) \sim 15$~GeV for the $2011$/$2012$ data--taking period~\cite{DP_12_003,DP_12_013}.
+Fig.~\ref{fig:performance_vs_metresolution} demonstrates
+that the performance of the tau--pair mass reconstruction performed by the SVfit algorithm
+is expected to degrade little in case pile--up may increase in the future.
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_diTau_PSkine_woLogM_Int_response_vs_metResolution_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_diTau_PSkine_woLogM_Int_resolution_vs_metResolution_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_eleMu_PSkine_woLogM_Int_response_vs_metResolution_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_eleMu_PSkine_woLogM_Int_resolution_vs_metResolution_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_muTau_PSkine_woLogM_Int_response_vs_metResolution_asymmetric.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_muTau_PSkine_woLogM_Int_resolution_vs_metResolution_asymmetric.pdf}
+\caption{\captiontext 
+  Response (left) and resolution (right) of $M_{\tau\tau}$ reconstructed in simulated $Z/\gamma^{*} \rightarrow \tau \tau$ and Higgs $\rightarrow \tau \tau$ events
+  as function of the resolution on the two components \METx and \METy of missing transverse momentum \MET, 
+  for $\ell\tau_{had}$ (top), $\tau_{had}\tau_{had}$ (center) and $\ell\ell$ (bottom) decays.
+  $M_{\tau\tau}$ solutions are obtained via marginalization of the ``Phase--Space'' likelihood model for tau decay kinematics.
+}
+\label{fig:performance_vs_metresolution}
+\end{center}
+\end{figure} 

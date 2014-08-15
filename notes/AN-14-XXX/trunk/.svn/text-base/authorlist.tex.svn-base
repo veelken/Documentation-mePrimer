@@ -1,0 +1,29 @@
+% define list of authors
+% (plus institute affiliation)
+
+\address[ucdavis]{
+% \\
+  Department of Physics,
+  University of California,
+  Davis, CA 95616--8677
+}
+
+\address[umwis]{
+% \\
+  Department of Physics,
+  University of Wisconsin,
+  Madison, WI 53706-1390
+}
+
+\address[LLR]{
+% \\
+Laboratoire Leprince-Ringuet, \'Ecole Polytechnique,
+91128 Palaiseau,
+France 
+}
+
+\author[LLR]{L.~Bianchini}
+\author[ucdavis]{J.~Conway}
+\author[umwis]{E.~K.~Friis}
+\author[LLR]{C.~Veelken}
+

@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Style for CMS Computing / Physics Technical Design Reports
+%
+%   Lucas Taylor  4 Feb 2005,   Revised  12 Oct 2005
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  the following line is edited by the tdr script to change or to pass
+%  additional options:
+\documentclass[11pt,twoside,a4paper,an]{cms-tdr}
+\def\svnVersion{146739:150530M}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Common definitions
+%
+%  N.B. use of \providecommand rather than \newcommand means
+%       that a definition is ignored if already specified
+%
+%                                              L. Taylor 18 Feb 2005
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Hyphenations (only need to add here if you get a nasty word break)
+%
+\hyphenation{had-ron-i-za-tion}
+\hyphenation{cal-or-i-me-ter}
+\hyphenation{de-vices}
+%
+% Hyphenations-end
+% % Customizable fields and text areas start with % >> below.
+% Lines starting with the comment character (%) are normally removed before release outside the collaboration, but not those comments ending lines
+
+% svn info. These are modified by svn at checkout time.
+% The last version of these macros found before the maketitle will be the one on the front page,
+% so only the main file is tracked.
+% Do not edit by hand!
+\RCS$Revision: 150530 $
+\RCS$HeadURL: svn+ssh://svn.cern.ch/reps/tdr2/notes/AN-14-XXX/trunk/AN-14-XXX.tex $
+\RCS$Id: AN-12-124.tex 150530 2012-10-04 12:46:23Z veelken $
+%%%%%%%%%%%%% local definitions %%%%%%%%%%%%%%%%%%%%%
+% This allows for switching between one column and two column (cms@external) layouts
+% The widths should  be modified for your particular figures. You'll need additional copies if you have more than one standard figure size.
+\newlength\cmsFigWidth
+\ifthenelse{\boolean{cms@external}}{\setlength\cmsFigWidth{0.85\columnwidth}}{\setlength\cmsFigWidth{0.4\textwidth}}
+\ifthenelse{\boolean{cms@external}}{\providecommand{\cmsLeft}{top}}{\providecommand{\cmsLeft}{left}}
+\ifthenelse{\boolean{cms@external}}{\providecommand{\cmsRight}{bottom}}{\providecommand{\cmsRight}{right}}
+
+\newcommand{\mtau}{m_{\tau}}
+\newcommand{\mnus}{m_{\nu\nu}}
+\newcommand{\mvis}{m_{vis}}
+
+\newcommand{\METx}{\ensuremath{E^{\mathrm{miss}}_{x}}\xspace}
+\newcommand{\METy}{\ensuremath{E^{\mathrm{miss}}_{y}}\xspace}
+
+\newcommand{\TReg}{\textsuperscript{\textregistered}}
+\newcommand{\TCop}{\textsuperscript{\textcopyright}}
+\newcommand{\TTra}{\textsuperscript{\texttrademark}}
+
+\newcommand{\avg}[1]{\left< #1 \right>}
+\newcommand{\MedMass}{\ensuremath{\avg{{M}_{\tau\tau}}}\xspace}
+\newcommand{\MedRatio}{\ensuremath{\MedMass/M_{\tau\tau}^{\mathrm {true}}}\xspace}
+
+\newcommand{\tablesize}{\small}
+
+%\newcommand{\captiontext}{\it}
+\newcommand{\captiontext}{}
+
+%%%%%%%%%%%%%%%  Title page %%%%%%%%%%%%%%%%%%%%%%%%
+\cmsNoteHeader{AN-14-XXX} % This is over-written in the CMS environment: useful as preprint no. for export versions
+% >> Title: please make sure that the non-TeX equivalent is in PDFTitle below
+\title{Higgs $\rightarrow \tau\tau$ Matrix Element Primer}
+
+%%%%%%%%%%%%%%% Author list %%%%%%%%%%%%%%%%%%%%%%%%%
+\input{authorlist}
+
+% >> Date
+% The date is in yyyy/mm/dd format. Today has been
+% redefined to match, but if the date needs to be fixed, please write it in this fashion.
+% For papers and PAS, \today is taken as the date the head file (this one) was last modified according to svn: see the RCS Id string above.
+% For the final version it is best to "touch" the head file to make sure it has the latest date.
+\date{\today}
+
+% >> Abstract
+% Abstract processing:
+% 1. **DO NOT use \include or \input** to include the abstract: our abstract extractor will not search through other files than this one.
+% 2. **DO NOT use %**                  to comment out sections of the abstract: the extractor will still grab those lines (and they won't be comments any longer!).
+% 3. **DO NOT use tex macros**         in the abstract: External TeX parsers used on the abstract don't understand them.
+\abstract{
+  This note represents a working document in which we document our progress
+  with applying the Matrix Element method to the Higgs $\rightarrow \tau\tau$ analysis.
+}
+
+% >> PDF Metadata
+% Do not comment out the following hypersetup lines (metadata). They will disappear in NODRAFT mode and are needed by CDS.
+% Also: make sure that the values of the metadata items are sensible and are in plain text (no TeX! -- for \sqrt{s} use sqrt(s) -- this will show with extra quote marks in the draft version but is okay).
+
+\hypersetup{%
+pdfauthor={Christian Veelken},%
+pdftitle={Higgs $\rightarrow \tau\tau$ Matrix Element Primer},%
+pdfsubject={CMS},%
+pdfkeywords={CMS, physics}}
+
+\maketitle %maketitle comes after all the front information has been supplied
+
+% >> Text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Begin text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% **DO NOT REMOVE THE BIBLIOGRAPHY** which is located before the appendix.
+%% You can take the text between here and the bibiliography as an example which you should replace with the actual text of your document.
+%% If you include other TeX files, be sure to use "\input{filename}" rather than "\input filename".
+%% The latter works for you, but our parser looks for the braces and will break when uploading the document.
+%%%%%%%%%%%%%%%
+
+\section{Matrix elements}
+\label{sec:matrix_elements}
+
+In this section we describe the computation of the Matrix Elements
+for the Higgs $\rightarrow \tau\tau$ signal and different background processes.
+
+\input{signal}
+
+\input{acknowledgements}
+
+%\clearpage
+
+\bibliography{auto_generated}   % will be created by the tdr script.
+
+%\clearpage
+
+\appendix
+
+\input{appendix_formulas}
+
+%%% DO NOT ADD \end{document}!
+
+\end{document}
+

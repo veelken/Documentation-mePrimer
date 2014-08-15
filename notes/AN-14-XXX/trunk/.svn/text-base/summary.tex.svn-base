@@ -1,0 +1,21 @@
+\section{Summary}
+\label{sec:summary}
+
+Improvements to the SVfit algorithm for tau--pair mass reconstruction have been described in this note.
+The main developments with respect to the previous version of SVfit
+are the implementation of likelihood functions for leptonic and hadronic tau decays that are based on full matrix elements 
+plus the option to compute $M_{\tau\tau}$ solutions by marginalization.
+We find that distributions of $M_{\tau\tau}$ reconstructed using the matrix element based likelihood functions 
+are similar to the distributions reconstructed using the phase--space model for tau decay kinematics.
+The marginalization of likelihood functions for computing $M_{\tau\tau}$ solutions 
+is found to provide a significant improvement in performance compared to the previously used profile likelihood method.
+
+In applications of SVfit, we recommend to use the matrix element based likelihood function for leptonic tau decays.
+For hadronic tau decays we recommend to keep using the phase--space model.
+Concerning the choice between marginalization and profile likelihood method,
+our recommendation is to use the marginalization method in all applications 
+for which a computing time of $1$~s per event is permissible.
+
+The $M_{\tau\tau}$ distributions reconstructed in $WH$ events
+demonstrate that the SVfit likelihood approach for tau--pair mass reconstruction 
+is flexible enough to adapt to different use--cases.

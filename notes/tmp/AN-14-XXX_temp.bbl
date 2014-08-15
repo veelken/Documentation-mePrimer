@@ -1,0 +1,46 @@
+\providecommand{\href}[2]{#2}\begingroup\raggedright\begin{thebibliography}{1}%
+\makeatletter
+\providecommand{\hrefCMSnoop }[0]{\@secondoftwo}%
+\makeatother
+\providecommand{\doi}{\texttt{doi:}\begingroup \urlstyle{tt}\Url}
+
+\bibitem{PDG}
+\hrefCMSnoop {} {{ Particle Data Group} Collaboration, ``{Review of Particle
+  Physics (RPP)}'',} \textit{ Phys.Rev.} \textbf{ D86} (2012) 010001,
+\href{http://dx.doi.org/10.1103/PhysRevD.86.010001}{\doi{10.1103/PhysRevD.86.010001}}.
+%%CITATION = PHRVA,D86,010001;%%.
+
+\bibitem{MadGraph}
+\hrefCMSnoop {} {F.~Maltoni and T.~Stelzer, ``MadEvent: Automatic event
+  generation with MadGraph'',} \textit{ JHEP} \textbf{ 0302} (2003) 027,
+  \href{http://www.arXiv.org/abs/0208.0156}{\texttt{ arXiv:0208.0156}}.
+
+\bibitem{Alwall:2010cq}
+\hrefCMSnoop {} {J.~Alwall, A.~Freitas, and O.~Mattelaer, ``{The Matrix Element
+  Method and QCD Radiation}'',} \textit{ Phys.Rev.} \textbf{ D83} (2011)
+  074010,
+  \href{http://dx.doi.org/10.1103/PhysRevD.83.074010}{\doi{10.1103/PhysRevD.83.074010}},
+\href{http://www.arXiv.org/abs/1010.2263}{\texttt{ arXiv:1010.2263}}.
+%%CITATION = ARXIV:1010.2263;%%.
+
+\bibitem{deltaFunctionRules}
+\hrefCMSnoop {} {\mbox{Wikipedia}}.
+\newblock
+  http://en.wikipedia.org/wiki/Dirac\_delta\_function\#Composition\_with\_a\_function.
+
+\bibitem{CMS_AN_2013-171}
+\hrefCMSnoop {} {\mbox{Higgs TauTau group}, ``Search for MSSM Neutral Higgs
+  Bosons Decaying to Tau Pairs in $pp$ Collisions'',} \textit{ CMS Note}
+  \textbf{
+  \href{http://cms.cern.ch/iCMS/jsp/openfile.jsp?tp=draft&files=AN2013_171_v1.pdf}{2013/171}}
+  (2013).
+
+\bibitem{Artoisenet:2010cn}
+\hrefCMSnoop {} {P.~Artoisenet, V.~Lemaitre, F.~Maltoni, and O.~Mattelaer,
+  ``{Automation of the matrix element reweighting method}'',} \textit{ JHEP}
+  \textbf{ 1012} (2010) 068,
+  \href{http://dx.doi.org/10.1007/JHEP12(2010)068}{\doi{10.1007/JHEP12(2010)068}},
+\href{http://www.arXiv.org/abs/1007.3300}{\texttt{ arXiv:1007.3300}}.
+%%CITATION = ARXIV:1007.3300;%%.
+
+\end{thebibliography}\endgroup

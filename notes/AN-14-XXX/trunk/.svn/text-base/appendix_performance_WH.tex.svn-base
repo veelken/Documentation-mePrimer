@@ -1,0 +1,88 @@
+\section{SVfit performance in $WH$ events}
+\label{sec:appendix_performance_WH}
+
+In this section we study the performance of the SVfit algorithm to reconstruct the tau--pair mass 
+in events in which a Standard Model Higgs is produced in association with a $W$ boson.
+The events are analyzed in the channel in which the Higgs boson decays into tau leptons
+which decay hadronically
+and the $W$ boson decays into muon plus neutrino,
+$WH \rightarrow \mu \nu \tau \tau \rightarrow \mu \nu \tau_{had} \tau_{had}$.
+
+The neutrino produced in the $W$ boson decay modifies the \MET balance ({\it cf.}\ equation~\ref{eq:met_balance})
+and needs to be accounted for in the likelihood model used to reconstruct $M_{\tau\tau}$ solutions.
+We model the $W$ decay by introducing $3$ additional parameters to the likelihood model described in section~\ref{sec:likelihoods}:
+the decay angles $\theta$ and $\phi$ which describe the direction of the charged lepton in the rest frame of the $W$ boson
+plus $M_{\ell\nu}$, the invariant mass of charged lepton plus neutrino produced in the $W$ decay~\footnote{
+  Note that no modifications are necessary to the likelihood model described in section~\ref{sec:likelihoods} in case 
+  $WH$ events are analyzed in the decay channel in which the $W$ boson decays into pairs of jets, $WH \rightarrow j j \tau \tau$,
+  or in $ZH$ events in which the $Z$ boson decays into a pair of electrons or muons, $ZH \rightarrow \ell \ell \tau \tau$,
+  as the \MET balance is not affected by the $W$ and $Z$ decays in these cases.
+}.
+
+The likelihood functions for tau decay kinematics and the missing $E_{T}$ are augmented by terms modeling the $W$ decay kinematics and the $W$ line shape.
+The $W$ bosons are assumed to be unpolarized.
+In this case the $W$ decay is isotropic and the likelihood function modeling the $W$ decay kinematics is constant:
+\begin{equation*}
+p_{W}^{DK} = \frac{1}{4\pi}.
+\end{equation*}
+The $W$ line shape is described by a relativistic Breit--Wigner function~\cite{relativisticBreitWigner}:
+\begin{equation*}
+p_{W}^{LS} = \frac{k}{(M_{\mu\nu}^{2} - M_{W}^{2}) + M_{W}^{2} \Gamma_{W}^2}, 
+  \mbox{ with } 
+k = \frac{2 \sqrt{2} M_{W} \Gamma_{W} \gamma}{\pi \sqrt{M_{W}^{2} + \gamma}}, \gamma = \sqrt{M_{W}^{2} (M_{W}^{2} + \Gamma_{W}^{2})}
+\end{equation*}
+
+The three additional parameters describing the $W$ decay (the two $W$ specific additions to the likelihood function)
+are handled by the marginalization and profile likelihood methods in the same way as the parameters describing the tau decay kinematics
+(the likelihood functions for tau decay kinematics and missing $E_{T}$).
+The \MET balance of equation~\ref{eq:met_balance} is extended to include the neutrino produced in the $W$ boson decay on the left hand side of the equation.
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZToTauTau_WtoMuNuHiggsToDiTau_compLikelihoodModels_linear_WH.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZToTauTau_WtoMuNuHiggsToDiTau_compLikelihoodModels_log_WH.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_HToTauTau_M-120_WtoMuNuHiggsToDiTau_compLikelihoodModels_linear_WH.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_HToTauTau_M-120_WtoMuNuHiggsToDiTau_compLikelihoodModels_log_WH.pdf}
+\caption{\captiontext 
+  Distributions of $M_{\tau\tau}$ reconstructed 
+  in simulated $WZ \rightarrow \mu \nu \tau \tau \rightarrow \mu \nu \tau_{had} \tau_{had}$ (top)
+  and $WH \rightarrow \mu \nu \tau \tau \rightarrow \mu \nu \tau_{had} \tau_{had}$ (bottom) events
+  using the ``Phase--Space'' and ``Matrix Element'' likelihood models for tau decay kinematics described in sections~\ref{sec:psKine} and~\ref{sec:meKine},
+  shown in linear (left) and logarithmic (right) scale.
+  $M_{\tau\tau}$ solutions are obtained via marginalization.
+}
+\label{fig:perfCompPSvsMEkine_WH_ditau}
+\end{center}
+\end{figure} 
+
+\begin{figure}
+\setlength{\unitlength}{1mm}
+\begin{center}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZToTauTau_WtoMuNuHiggsToDiTau_Fit_vs_Int_linear_WH.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_ZToTauTau_WtoMuNuHiggsToDiTau_Fit_vs_Int_log_WH.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_HToTauTau_M-120_WtoMuNuHiggsToDiTau_Fit_vs_Int_linear_WH.pdf}
+  \includegraphics*[width=0.49\textwidth]{plots/svFitPerformance_HToTauTau_M-120_WtoMuNuHiggsToDiTau_Fit_vs_Int_log_WH.pdf}
+\caption{\captiontext 
+  $M_{\tau\tau}$ distributions reconstructed 
+  in simulated $WZ \rightarrow \mu \nu \tau \tau \rightarrow \mu \nu \tau_{had} \tau_{had}$ (top)
+  and $WH \rightarrow \mu \nu \tau \tau \rightarrow \mu \nu \tau_{had} \tau_{had}$ (bottom) events
+  using marginalization compared to profiling of the likelihood functions.
+  Distributions are shown in linear (logarithmic) scale on the left (right).
+}
+\label{fig:perfCompFitvsInt_WH_ditau}
+\end{center}
+\end{figure} 
+
+The $M_{\tau\tau}$ distributions reconstructed by SVfit in $WH$ events simulated for a Higgs mass $M = 120$~\GeV
+and in simulated $ZH$ events
+are shown in Figs.~\ref{fig:perfCompPSvsMEkine_WH_ditau} and~\ref{fig:perfCompFitvsInt_WH_ditau}.
+The distributions compare different likelihood models for the tau decay kinematics 
+and $M_{\tau\tau}$ solutions obtained by marginalization versus profile likelihood method.
+The shape of the distributions is similar to the shape of $M_{\tau\tau}$ distributions reconstructed in 
+$Z \rightarrow \tau \tau$ and $M = 130$~\GeV Higgs $\rightarrow \tau \tau$ events 
+without additional $W$ bosons ({\it cf.}\ Figs.~\ref{fig:perfCompPSvsMEkine_ditau} and~\ref{fig:perfCompFitvsInt_ditau}).
+The presence of an additional neutrino from the $W$ decay degrades the resolution by a bit, but not by much.
+In summary, Figs.~\ref{fig:perfCompPSvsMEkine_WH_ditau} and~\ref{fig:perfCompFitvsInt_WH_ditau}
+demonstrate the flexibility of the likelihood approach implemented in SVfit to perform well in different use--cases.
+
