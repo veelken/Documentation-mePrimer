@@ -53,6 +53,21 @@ integration to values compatible with the measured hadronic recoil:
 with $\vec{p}_{exp}^{recoil} = -\left( \sum_{taus} \vec{p}_{\tau} \sum_{jets} \vec{p}_{jet} \right)$.
 Note that the sum in the expression for $\vec{p}_{exp}^{recoil}$ extend over the ``true'' momenta of the two taus originating from the Higgs decay plus the momenta of high $P_{T}$ jets.
 
+The vector $\vec{p}_{exp}^{recoil}$ can be used to transform the momenta $\vec{p}_{\tau}$ and $\vec{p}_{jet}$ into the {\em zero momentum frame} of the hard-scatter interaction.
+The transformation is performed by a Lorentz boost in the transverse plane:
+\begin{equation*}
+\vec{p}' = \Lambda \vec{p}.
+\end{equation*}
+The transformation matrix is given by:
+\begin{equation*}
+\Lambda = \left| \begin{array}{cccc}
+ \gamma & -\gamma \beta_{x} & -\gamma \beta_{y} & 0 \\
+ -\gamma \beta_{x} & 1 + (\gamma - 1) \frac{\beta_{x}^2}{\beta^2} & (\gamma - 1) \frac{\beta_{x}\beta_{y}}{\beta^2} & 0 \\
+ -\gamma \beta_{y} & (\gamma - 1) \frac{\beta_{x}\beta_{y}}{\beta^2} & 1 + (\gamma - 1) \frac{\beta_{y}^2}{\beta^2} & 0 \\
+ 0 & 0 & 0 & 1 \end{array} \right|,
+\end{equation*}
+with $\beta_{x} = \frac{P_{x}^{recoil}}{P_{T}^{recoil}}$, $\beta_{y} = \frac{P_{y}^{recoil}}{P_{T}^{recoil}}$,
+$P_{T}^{recoil} = \sqrt{{P_{x}^{recoil}}^2 + {P_{y}^{recoil}}^2}$, $\beta = \sqrt{\beta_{x}^2 + \beta_{y}^2}$ and $\gamma = \frac{1}{\sqrt{1 - \beta^2}}$.
 
 \subsubsection{$\vert \mathcal{M}_{HS} \vert^2$}
 
@@ -147,7 +162,7 @@ For debugging:
 \item We appreciate that the matrix element formalism is not trivial and we anticipate that we may make mistakes that we need to debug.
   The idea is to compute Eq.~\ref{eq:meSignal} for a series of test Higgs masses $\{ m_{H}^{i} \}$ in simulated Higgs $\rightarrow \tau\tau$ signal events with $m_{H}^{true} = 125$~\GeV.
   We expect that for most signal events the maximum weight $w$ is attained for a test mass $m_{H}^{i}$ close to the true Higgs mass $m_{H}^{true}$,
-  modulo a typical resolution of $\mathcal{O}(20\%)$ that we plan to compare with SVfit~\ref{Bianchini:2014vza}.
+  modulo a typical resolution of $\mathcal{O}(20\%)$ that we plan to compare with SVfit~\cite{Bianchini:2014vza}.
 \end{itemize}
 
 
