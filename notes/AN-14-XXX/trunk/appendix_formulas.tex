@@ -1,0 +1,72 @@
+\section{Collection of formulas}
+\label{sec:appendix_collection_of_formulas}
+
+\subsection{Transformations of phase--space element from Cartesian to polar coordinates}
+
+We will assume that the direction of electrons, muons, hadronic taus and jets is measured precisely.
+
+With this assumption the transfer functions that related the measured four--vector \vec{x'} to the true four--vector \vec{x} (used in the Matrix Element):
+\begin{equation*}
+W(\vec{x'}, \vec{x}) = W(E', E) \delta(\theta' - \theta) \delta(\phi' - \phi).
+\end{equation*}
+
+The use of polar coordinates ($P$, $\theta$, $\phi$) or equivalently ($P$, $\eta$, $\phi$) 
+is hence advantageous for the computation of transfer functions integrals.
+
+\subsubsection{Transformation of $d^{3}p$ to $dP d\theta d\phi$}
+\label{sec:transformation_to_polar_coordinates}
+
+The transformation to ($P$, $\theta$, $\phi$) is given by the expressions:
+\begin{eqnarray*}
+P_{x} & = & P \cos \phi \sin \theta
+P_{y} & = & P \sin \phi \sin \theta
+P_{z} & = & P \cos \theta.
+\end{eqnarray*}
+
+The Jacobi determinant associated with the transformation is:
+\begin{equation*}
+\det M = P^2 \sin \theta
+\end{equation*}
+
+The phase--space element can hence be written:
+\begin{equation*}
+\frac{d^3p}{2 E} = \frac{{P^2 \sin\theta \ dP \ d\theta \ d\phi}}{2 E} = \frac{{P^2 \ dP \ d\cos\theta \ d\phi}}{2 E} = \frac{P}{2} \ dE \ d\cos\theta \ d\phi.
+\end{equation*}
+The last step follows as $E = \sqrt{P^2 + m^2}$ implies $\frac{dE}{dp} = \frac{P}{E} \Leftrightarrow P dP = E dE$.
+
+\subsection{Transformation of $d^{3}p$ to $dP_{T} d\eta d\phi$}
+
+The transformation to ($P_T$, $\eta$, $\phi$) is given by the following expressions:
+\begin{eqnarray*}
+P_{x} & = & P_{T} \cos \phi
+P_{y} & = & P_{T} \sin \phi
+P_{z} & = & P_{T} \sinh \eta.
+\end{eqnarray*}
+
+The Jacobi determinant associated with this transformation is:
+\begin{equation*}
+\det M = P_{T}^2 \cosh \eta
+\end{equation*}
+
+The phase--space element can hence be written:
+\begin{equation*}
+\frac{d^3p}{2 E} = \frac{{P_{T}^2 \ \cosh\eta \ dP_{T} \ d\eta \ d\phi}}{2 E}.
+\end{equation*}
+
+\subsection{Transformation to resonance mass}
+
+In case the phase--space integral extends over daughter particles of a narrow resonance,
+numerical stability of the computation requires to perform a transformation of the integration variables
+such that one integration variable corresponds to the mass of the resonance~\cite{Artoisenet:2010cn}.
+
+Starting from the variables ($P_T$, $\eta$, $\phi$) of two daughters, the mass of the resonance can be expressed by the transverse momentum of the second daughter by:
+\begin{equation*}
+P_{T_{2}} = \frac{M}{2 P_{T_{1}} \cos(\phi_{1} - \phi_{2}) + 2 P_{T_{1}} \sinh\eta_{1} \sinh\eta_{2}}.
+\end{equation*}
+
+The Jacobi determinant associated with the transformation is:
+\begin{equation*}
+\det M = \frac{1}{2 P_{T_{1}} \cos(\phi_{1} - \phi_{2}) + 2 P_{T_{1}} \sinh\eta_{1} \sinh\eta_{2}}.
+\end{equation*}
+
+
